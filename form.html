@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+</head>
+<body>
+	<script>
+		function clearErrors(){
+	
+			errors=document.getElementsByClassName('fromerror');
+			for(let item of errors)
+			{
+				item.innerHTML="";
+			}
+		}
+	function seterror(id,error){
+		//sets error inside tag of id
+		element=document.getElementById(id);
+		element.getElementsByClassName('fromerror')[0].innerHTML=error;
+	}
+	function validateForm(){
+		var returnval=true;
+		clearErrors();
+		var name=document.forms['myform']["fname"].value;
+		if(name.length<5){
+			seterror("name","Length of name is too short");
+			returnval=false;
+		
+		}
+	
+		if(name.length==0){
+			seterror("name","Enter your name");
+			returnval=false;
+		}
+		var email=document.forms['myform']["femail"].value;
+		if(email.length>20){
+		seterror("email","enter valid email");
+		returnval=false;
+		}
+		var phone=document.forms['myform']["fphone"].value;
+		if(phone.length!=10){
+		seterror("phone","enter valid phone number");
+		returnval=false;
+		}
+		var pass=document.forms['myform']["fpass"].value;
+		if(pass.length<6){
+		
+		seterror("pass","Password must be atleast 6 charecters");
+		returnval=false;
+		}
+		var cpass=document.forms['myform']["fcpass"].value;
+		if(cpass!=pass){
+		
+		seterror("cpass","Password and confirm password should be matched");
+		returnval=false;
+		}
+	
+	return returnval;
+	}
+	
+	</script>
+
+<header>
+	
+<nav>
+	<div class="logo"> <h1 style="font-size: 20px;"> Xavier International College </h1> </div>
+	<div class="menu">
+		<a href="https://plus.xavier.edu.np">Home</a>
+		<a href="https://xaviercollege.edu.np/gallery/images">gallery</a>
+		<a href="https://www.youtube.com/channel/UCNmzWkNGUg0Q9D90u-Z4xHQ" target="_blank">about</a>
+		<a href="https://sujalacharya.github.io/Portfolio/">contact</a>
+	</div>
+</nav>
+
+	<main>
+		<section>
+			<h3>Sign up form
+				<form action="https://plus.xavier.edu.np/contact-us" method="post">
+					<input type="hidden" name="_token" value="mgmZZG108L2XD6mKTC9H1oLv85DmaHrwNtEYLtLT">                                                    <ul>
+						<li>
+							<i class="wmicon-black"></i>
+							<input type="text" name="name" onblur="if(this.value == '')" onfocus="if(this.value =='Name') { this.value = ''; }" placeholder="Your Name" required>
+						</li>
+						<li>
+							<i class="wmicon-symbol3"></i>
+							<input type="text" name="email" onblur="if(this.value == '')" onfocus="if(this.value =='E-mail') { this.value = ''; }" placeholder="Your Email" required>
+						</li>
+						<li>
+							<i class="wmicon-technology4"></i>
+							<input type="text" name="phone" onblur="if(this.value == '')" onfocus="if(this.value =='Phone') { this.value = ''; }" placeholder="Phone Number" required>
+						</li>
+						<li>
+							<i class="wmicon-web2"></i>
+							<textarea placeholder="Message" name="message" required></textarea>
+						</li>
+						<li> <input type="submit" value="Send Message" style="font-weight: bold;"> </li>
+					</ul>
+				</form></h3>
+			<a href="#" class="btntwo"><input type="Submit" class="btntwo" value="submit">signup here</a>
+		</section>
+	</main>
+
+
+</header>
+
+</body>
+</html>
